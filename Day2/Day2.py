@@ -38,36 +38,37 @@ for line in data:
         pullblue = 0      
 
         cubes = pull.strip().split(', ')
-        print("processing: {}".format(cubes))
+        #print("processing: {}".format(cubes))
         for cube in cubes:
             number = int(cube.strip().split(' ')[0])
             color = cube.strip().split(' ')[1]
-            print("Color: {} | Number: {}".format(color,number))
+            #print("Color: {} | Number: {}".format(color,number))
             match color:
                 case "blue":
                     pullblue += number
-                    print("Case BLUE")
+                    #print("Case BLUE")
                     if number > highestblue:
+                        print("New Highest Blue: {}, WAS: {}".format(number,highestblue))
                         highestblue = number
                 case "green":
                     pullgreen += number
-                    print("Case GREEN")
+                    #print("Case GREEN")
                     if number > highestgreen:
+                        print("New Highest Green: {}, WAS: {}".format(number,highestgreen))
                         highestgreen = number
                 case "red":
                     pullred += number
-                    print("Case RED")
+                    #print("Case RED")
                     if number > highestred:
+                        print("New Highest Red: {}, WAS: {}".format(number,highestred))
                         highestred = number
             
             if pullblue > bluemax or pullgreen > greenmax or pullred > redmax:
                 possible = False
-
-        if possible:
-            smallestpossible += (highestblue*highestgreen*highestred)
+        
     if possible:
         possgametotal += gamenum
-        
+    smallestpossible += highestblue * highestgreen * highestred
     #input(":::::")
         
     
